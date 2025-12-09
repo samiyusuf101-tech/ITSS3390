@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anime & Japanese Culture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --red:#D50000;          
+      --red-soft:#FFF5F5;     
+      --bg:#FFFFFF;           
+      --text:#1F2937;         
+      --muted:#E5E7EB;        
+      --note:#6B7280;         
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:var(--bg);
+      border-bottom:1px solid var(--muted);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:64px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+    }
+    .brand .logo{
+      width:32px;
+      height:32px;
+      border-radius:8px;
+      background:var(--red);
+      display:grid;
+      place-items:center;
+      color:#FFF;
+      font-size:18px;
+    }
+    .menu{
+      display:flex;
+      gap:18px;
+    }
+    .menu a{
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:500;
+    }
+    .menu a:hover{
+      background:var(--muted);
+    }
+    .cta{
+      background:var(--red);
+      color:#FFF;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:600;
+    }
+    .cta:hover{
+      filter:brightness(0.95);
+    }
+
+    
+    .hero{
+      background:linear-gradient(120deg,rgba(213,0,0,.08),rgba(0,0,0,.02));
+      border-bottom:1px solid var(--muted);
+      padding-left:16px;
+      padding-right:16px;
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:32px;
+      align-items:center;
+      padding:48px 0;
+    }
+    .kicker{
+      color:var(--red);
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    h1{
+      font-size:40px;
+      line-height:1.1;
+      margin:10px 0;
+    }
+    .hero p{
+      font-size:16px;
+      opacity:.9;
+    }
+    .btn-row{
+      margin-top:16px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      border:2px solid transparent;
+    }
+    .btn.primary{
+      background:var(--red);
+      color:#FFF;
+      border-color:var(--red);
+    }
+    .btn.secondary{
+      background:var(--bg);
+      border-color:var(--red);
+      color:var(--red);
+    }
+    .btn.secondary:hover{
+      background:var(--red-soft);
+    }
+
+    .hero-img{
+      width:100%;
+      aspect-ratio:16/10;
+      border-radius:16px;
+      object-fit:cover;
+      box-shadow:0 18px 40px rgba(0,0,0,.15);
+    }
+
+    
+    section{padding:36px 0}
+    .section-title{
+      font-size:22px;
+      margin:0 0 16px 0;
+    }
+
+    
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:var(--bg);
+      border:1px solid var(--muted);
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .card .thumb{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      display:block;
+      border-bottom:1px solid var(--muted);
+    }
+    .card .body{
+      padding:14px;
+    }
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:999px;
+      background:var(--red-soft);
+      color:var(--red);
+      margin-bottom:8px;
+      font-weight:600;
+    }
+    .card h3{
+      font-size:18px;
+      margin:6px 0;
+    }
+    .card p{
+      font-size:14px;
+      opacity:.9;
+    }
+    .card .more{
+      margin-top:auto;
+      padding:12px 14px;
+      color:var(--red);
+      font-weight:600;
+    }
+
+    
+    .content{
+      display:block;
+      width:100%;
+    }
+
+    .post{
+      background:var(--bg);
+      border:1px solid var(--muted);
+      border-radius:16px;
+      padding:18px;
+      margin-bottom:24px;
+    }
+    .post h3{
+      margin:0 0 6px 0;
+    }
+    .meta{
+      font-size:12px;
+      color:var(--note);
+      margin-bottom:10px;
+    }
+
+    
+    footer{
+      margin-top:36px;
+      border-top:1px solid var(--muted);
+      padding:20px 0;
+      background:var(--bg);
+      font-size:14px;
+    }
+    .foot{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .foot .brand{font-weight:800}
+    .note{
+      font-size:12px;
+      color:var(--note);
+    }
+
+    @media (max-width:980px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:640px){
+      .menu{display:none}
+      h1{font-size:32px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">ア</div>
+        <span>AniVerse</span>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#">Home</a>
+        <a href="#beginner">Beginner Guide</a>
+        <a href="#culture">Culture</a>
+        <a href="#western">Western Impact</a>
+        <a href="#about">About</a>
+      </nav>
+      <a class="cta" href="#subscribe">Subscribe</a>
+    </div>
+  </header>
+
+  
+  <div class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <div class="kicker">Anime • Japanese Culture</div>
+        <h1>Stories, art, and ideas shaping a global fandom.</h1>
+        <p>
+          Welcome to <strong>AniVerse</strong> — your corner of the internet for exploring anime
+          and Japanese culture. From beginner picks to cultural deep dives, we explore how anime
+          inspires creativity, connects communities, and shapes media worldwide.
+        </p>
+        <div class="btn-row">
+          <a href="#featured" class="btn primary">Explore Topics</a>
+          <a href="#latest" class="btn secondary">Read Latest</a>
+        </div>
+      </div>
+
+      <img
+        class="hero-img"
+        src="https://static.beebom.com/wp-content/uploads/2023/06/featured-new.jpg?w=750&quality=75"
+        alt="Anime collage banner"
+      >
+    </div>
+  </div>
+
+  <!-- Featured Topics -->
+  <section id="featured" class="container">
+    <h2 class="section-title">Featured Topics</h2>
+    <div class="grid">
+      
+      <article class="card" id="beginner">
+        <img class="thumb"
+          src="https://66.media.tumblr.com/56f86c01da41bbcec090023a4da6713f/tumblr_pom680M8Bm1rzp45wo1_1280.jpg"
+          alt="Demon Slayer key visual">
+        <div class="body">
+          <span class="tag">Beginner</span>
+          <h3>Best Beginner Anime</h3>
+          <p>
+            Start your journey with approachable hits like <em>Demon Slayer</em>, known for its
+            incredible animation, emotional storytelling, and characters new fans instantly love.
+          </p>
+        </div>
+        <a href="#" class="more">Read guide →</a>
+      </article>
+
+      <article class="card" id="culture">
+        <img class="thumb"
+          src="https://deadline.com/wp-content/uploads/2023/11/One-Piece-Macy-Parade.jpg?w=681&h=383&crop=1"
+          alt="Luffy parade float in Japan">
+        <div class="body">
+          <span class="tag">Culture</span>
+          <h3>How Anime Shaped Culture in Japan</h3>
+          <p>
+            Massive floats, themed districts, and cultural festivals show how deeply anime is woven
+            into everyday life across Japan.
+          </p>
+        </div>
+        <a href="#" class="more">Explore history →</a>
+      </article>
+
+      <article class="card" id="western">
+        <img class="thumb"
+          src="https://m.media-amazon.com/images/S/pv-target-images/cf8e3f5027bdd27fad56fd0295ff0d5bc7ad1a3480edaeeec922b584e9b12546._SX1080_FMjpg_.jpg"
+          alt="Naruto Hidden Leaf Village">
+        <div class="body">
+          <span class="tag">Media</span>
+          <h3>Anime’s Importance in Western Media</h3>
+          <p>
+            Series like <em>Naruto</em> pushed anime into the Western mainstream, inspiring
+            storytellers and shaping modern animation.
+          </p>
+        </div>
+        <a href="#" class="more">See examples →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FULL-WIDTH CONTENT -->
+  <section id="latest" class="container content">
+
+    <article class="post">
+      <h3>What Makes a Great Starter Series?</h3>
+      <div class="meta">5 min read • Beginner • Updated weekly</div>
+      <p>
+        A great starter anime is easy to follow, emotionally engaging, and not overwhelming in
+        length. Series like <em>Demon Slayer</em>, <em>My Hero Academia</em>, and 
+        <em>Attack on Titan</em> introduce viewers to anime’s strengths—expressive animation,
+        dramatic battles, and relatable character arcs. They strike the perfect balance between
+        action, humor, and meaningful storytelling.
+      </p>
+    </article>
+
+    <article class="post">
+      <h3>From Manga to Screen: The Adaptation Pipeline</h3>
+      <div class="meta">7 min read • Culture</div>
+      <p>
+        Most anime begins as manga, where artists create entire worlds through black-and-white
+        illustrations. Once a manga becomes popular, animators, storyboard artists, and voice
+        actors collaborate to bring it to life. The goal is to stay faithful to the original art
+        while elevating the story with motion, color, and sound.
+      </p>
+    </article>
+
+    <article class="post">
+      <h3>Why Western Animators Borrow Anime Techniques</h3>
+      <div class="meta">6 min read • Media</div>
+      <p>
+        Anime’s influence on Western animation is huge. Shows like <em>Avatar: The Last
+        Airbender</em> and <em>Teen Titans</em> borrow anime-inspired choreography, emotional
+        expression, and visual pacing. This fusion of styles has shaped a new era of storytelling
+        celebrated around the world.
+      </p>
+    </article>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div class="brand">
+        <div class="logo">ア</div>
+        AniVerse
+      </div>
+      <div class="note">
+        © 2025 AniVerse • Built for ITSS3390 Project Phase 2
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
